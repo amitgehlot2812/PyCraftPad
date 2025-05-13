@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter.filedialog import askopenfilename, asksaveasfilename
+from tkinter import PhotoImage
 
 def open_file():
     filepath = askopenfilename(
@@ -28,6 +29,10 @@ def save_file():
 
 window = tk.Tk()
 
+# Set window icon (title bar + taskbar)
+icon = PhotoImage(file="PyCraftPadv1.png")  # Use .png (or .gif), not .jpg
+window.iconphoto(True, icon)
+
 # Desired window size
 window_width = 800
 window_height = 600
@@ -46,7 +51,6 @@ window.geometry(f"{window_width}x{window_height}+{x}+{y}")
 
 window.rowconfigure(0, minsize=800, weight=1)
 window.columnconfigure(1, minsize=800, weight=1)
-
 
 txt_edit = tk.Text(window)
 txt_edit.grid(row=0, column=1, sticky="nsew")
